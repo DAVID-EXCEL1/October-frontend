@@ -26,13 +26,17 @@ const Props = () => {
     const test5 = () => {
         alert("Grains");
     }
+    const test6 = () => {
+        alert("Milk");
+    }
     return (
         <div>
-            <Btn title = "Edit" color="btn btn-primary" test={test1} />
-            <Btn title = "Delete" color="btn btn-danger" test={test2} />
-            <Btn title = "Update" color="btn btn-warning" test={test3} />
-            <Btn title = "Clear" color="btn btn-success" test={test4} />
-            <Btn title = "Save" color="btn btn-dark" test={test5} />
+            <Btn title="Edit" color="btn btn-primary" test={test1} />
+            <Btn title="Delete" color="btn btn-danger" test={test2} />
+            <Btn title="Update" color="btn btn-warning" test={test3} />
+            <Btn title="Clear" color="btn btn-success" test={test4} />
+            <Btn title="Save" color="btn btn-info" test={test5} />
+            <Btn title="Click" color="btn btn-dark" test={test6} />
         </div>
     )
 }
