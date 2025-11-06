@@ -10,6 +10,9 @@ const Navbar = () => {
                 <li className='d-inline-block me-4 '><Link className='text-dark text-decoration-none' to="/dashboard">Dashboard</Link></li>
                 <li className='d-inline-block me-4 '><Link className='text-dark text-decoration-none' to="/signin">Login</Link></li>
                 <li className='d-inline-block me-4 '><Link className='text-dark text-decoration-none' to="/signup">Register</Link></li>
+                <li className='d-inline-block me-4 '><Link className='text-dark text-decoration-none' to="/props">Props</Link></li>
+                <li className='d-inline-block me-4 '><Link className='text-dark text-decoration-none' to="/practice">Context</Link></li>
+                <li className='d-inline-block me-4 '><Link className='text-dark text-decoration-none' to="/not-found">About</Link></li>
             </ul>
         </nav>
     )
