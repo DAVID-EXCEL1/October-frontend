@@ -1,28 +1,35 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Signup = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate()
 
-    const handleSubmit = () => {
-        // e.preventDefault();  
-        let userData = {
-            firstName,
-            lastName,
-            email,
-            password
-        };
-        console.log(userData);
-        console.log("I am working already")
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault(); // 🔥 stops the default HTML form submission
+
+        const userData = { firstName, lastName, email, password };
+
+        axios.post("http://localhost:5000/user/register", userData)
+            .then((res) => {
+                console.log("Response:", res.data);
+                alert("Signup successful! Please login.");
+                navigate("/signin"); // 🔥 now this will actually work
+            })
+            .catch((err) => {
+                console.error("Error:", err.response ? err.response.data : err);
+                alert("Signup failed, try again.");
+            });
+    };
 
     return (
         <StyledWrapper>
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
                 <h1 className='text-center'>Sign Up</h1>
                 <div className="flex-column">
                     <label>First Name </label>
@@ -64,7 +71,7 @@ const Signup = () => {
                     </div>
                     <span className="span">Forgot password?</span>
                 </div>
-                <button className="button-submit" type='button' onClick={() => { handleSubmit() }}>Sign Up</button>
+                <button className="button-submit" type='submit'>Sign Up</button>
                 <p className="p">
                     Already have an account?
                     <Link to="/signin">
