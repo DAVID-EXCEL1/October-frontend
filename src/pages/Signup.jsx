@@ -15,7 +15,7 @@ const Signup = () => {
 
         const userData = { firstName, lastName, email, password };
 
-        axios.post("http://localhost:5000/user/register", userData)
+        axios.post("https://oct-backend-kz7y.onrender.com/user/register", userData)
             .then((res) => {
                 console.log("Response:", res.data);
                 alert("Signup successful! Please login.");
